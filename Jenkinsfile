@@ -7,7 +7,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                sudo pip install virtualenv
                 python --version
                 '''
                 echo 'Building nieeh..'
