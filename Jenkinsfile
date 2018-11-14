@@ -3,8 +3,6 @@ pipeline {
         docker { image 'python:3.6' }
     }
 
-    def installed = fileExists 'bin/activate'
-
     stages {
         stage('Build') {
             def installed = fileExists 'bin/activate'
