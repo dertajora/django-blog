@@ -5,13 +5,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "pip install -r requirements.txt"
+                sh ''' 
+                    virtualenv venv --distribute
+                    . venv/bin/activate 
+                    pip install -r requirements.txt
+                '''
                 echo 'Building nieeh..'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing test..'
+                echo 'Testing test nieeh..'
             }
         }
         stage('Deploy') {
