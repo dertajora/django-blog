@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                virtualenv --no-site-packages .
+                sudo pip install virtualenv
                 python --version
                 '''
                 echo 'Building nieeh..'
