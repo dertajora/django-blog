@@ -5,13 +5,11 @@ pipeline {
 
     stages {
         stage('Build') {
-            def installed = fileExists 'bin/activate'
-            
             steps {
-                if (!installed) {
-                    sh 'virtualenv --no-site-packages .'
-                }  
-                sh 'python --version'
+                sh '''
+                virtualenv --no-site-packages .
+                python --version
+                '''
                 echo 'Building nieeh..'
             }
         }
