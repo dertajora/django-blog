@@ -1,0 +1,11 @@
+# .gitlab-ci.yml
+
+image: "python:3.6"
+
+cache:
+  key: "$CI_COMMIT_REF_SLUG"
+  untracked: true
+
+test:
+  script:
+  - pwd
