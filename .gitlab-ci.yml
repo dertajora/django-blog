@@ -5,7 +5,8 @@ image: "python:3.6"
 stages:
   - build
   - test
-  - deploy
+  - staging
+  - production
 
 cache:
   key: "$CI_COMMIT_REF_SLUG"
@@ -14,15 +15,18 @@ cache:
 Test Build:
   stage: build
   script: echo "Build Nieh"
-Test Model:
+Dummy Test 1:
   stage: test
   script: echo "Test Model Nieh"
-Test View:
+Dummy Test 2:
   stage: test
   script: echo "Test View Nieh"
-Last View:
+Dummy Test 3:
   stage: test
   script: echo "Last Final Test"
-Test Deploy:
-  stage: deploy
-  script: echo "Deploy nieh"
+Deploy Staging:
+  stage: deploy staging
+  script: echo "Deploy staging nieh"
+Deploy Production:
+  stage: deploy production
+  script: echo "Deploy prod nieh"
