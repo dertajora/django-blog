@@ -8,7 +8,7 @@ pipeline {
                 pwd
                 virtualenv venv
                 . venv/bin/activate
-                python -r requirements.txt
+                pip3 install -r requirements.txt
                 deactivate
                 '''
                 echo 'Building nieeh..'
