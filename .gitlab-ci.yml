@@ -3,8 +3,8 @@
 image: "python:3.6"
 
 stages:
-  - build
   - test
+  - build
   - staging
   - production
 
@@ -12,15 +12,14 @@ cache:
   key: "$CI_COMMIT_REF_SLUG"
   untracked: true
 
-Test Build:
-  stage: build
-  script: 
-    - echo "Build Nieh"
-    - pip install -r requirements.txt
+variables:
+  CONTAINER_TEST_IMAGE: registry.gitlab.com/dertajora1/django-blog:$CI_BUILD_REF_NAME
+  CONTAINER_RELEASE_IMAGE: registry.gitlab.com/dertajora1/django-blog:latest
+
 Test 1:
   stage: test
   script: 
-    - pip install -r requirements.txt
+    # - pip install -r requirements.txt
     - echo "Test Model Nieh"
     - python manage.py test test/
 Dummy Test 2:
@@ -29,10 +28,21 @@ Dummy Test 2:
 Dummy Test 3:
   stage: test
   script: echo "Last Final Test"
+
+
+Build:
+  stage: build
+  script: 
+    - echo "Build Nieh"
+    - pip install -r requirements.txt
 Deploy Staging:
   stage: staging
   script: echo "Deploy staging nieh"
+  only:
+    - master
 Deploy Production:
   stage: production
   script: echo "Deploy prod nieh"
   when: manual
+  only:
+    - master
