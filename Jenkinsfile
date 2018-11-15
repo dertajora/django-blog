@@ -53,10 +53,12 @@ pipeline {
             }
         }
         stage('Deploy Production'){
-            when {
-                environment name: 'DEPLOYMENT_DECISION', value: 'Yes'
+            steps {
+                when {
+                    environment name: 'DEPLOYMENT_DECISION', value: 'Yes'
+                }
+                echo 'Deploying to production....'
             }
-            echo 'Deploying to production....'
         }
     }
 }
