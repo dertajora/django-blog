@@ -25,8 +25,9 @@ Dummy Test 3:
   stage: test
   script: echo "Last Final Test"
 Deploy Staging:
-  stage: deploy staging
+  stage: staging
   script: echo "Deploy staging nieh"
 Deploy Production:
-  stage: deploy production
+  stage: production
   script: echo "Deploy prod nieh"
+  when: manual
