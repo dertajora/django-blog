@@ -20,6 +20,7 @@ Test Build:
 Test 1:
   stage: test
   script: 
+    - pip install -r requirements.txt
     - echo "Test Model Nieh"
     - python manage.py test test/
 Dummy Test 2:
