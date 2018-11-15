@@ -9,3 +9,11 @@ cache:
 test:
   script:
   - pwd
+
+build:
+  script:
+  - pwd
+
+deploy:
+  script:
+  - pwd
