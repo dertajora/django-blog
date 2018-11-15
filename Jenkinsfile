@@ -5,8 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                python3 -V
-                docker --version
+                virtualenv venv
+                source venv/bin/activate
+                python -r requirements.txt
+                deactivate
                 '''
                 echo 'Building nieeh..'
             }
