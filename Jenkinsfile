@@ -24,8 +24,8 @@ pipeline {
                 echo 'Testing nieeh..'
             }
         }
+        input "Deploy to prod?"
         stage('Deploy') {
-            input "Deploy to prod?"
             steps {
                 echo 'Deploying....'
             }
