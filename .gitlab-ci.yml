@@ -14,10 +14,14 @@ cache:
 
 Test Build:
   stage: build
-  script: echo "Build Nieh"
-Dummy Test 1:
+  script: 
+    - echo "Build Nieh"
+    - pip install -r requirements.txt
+Test 1:
   stage: test
-  script: echo "Test Model Nieh"
+  script: 
+    - echo "Test Model Nieh"
+    - python manage.py test test/
 Dummy Test 2:
   stage: test
   script: echo "Test View Nieh"
