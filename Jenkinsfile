@@ -24,15 +24,16 @@ pipeline {
                 echo 'Testing nieeh..'
             }
         }
-        stage('Decide tag on Docker Hub') {
+        stage('Deploy Staging') {
             steps {
                 script {
                 env.DEPLOYMENT_DECISION = input message: 'Deploy on production?',
                     parameters: [choice(name: 'Confirmation', choices: 'No\nYes', description: 'Choose "Yes" if you want to deploy this build')]
                 }
+                echo 'Deploying....'
             }
         }
-        stage('Deploy') {
+        stage('Deploy Production') {
             when {
                 environment name: 'DEPLOYMENT_DECISION', value: 'yes'
             }
