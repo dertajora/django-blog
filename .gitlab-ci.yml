@@ -19,7 +19,7 @@ variables:
 Test 1:
   stage: test
   script: 
-    # - pip install -r requirements.txt
+    - pip install -r requirements.txt
     - echo "Test Model Nieh"
     - python manage.py test test/
 Dummy Test 2:
@@ -28,7 +28,6 @@ Dummy Test 2:
 Dummy Test 3:
   stage: test
   script: echo "Last Final Test"
-
 
 Build:
   stage: build
