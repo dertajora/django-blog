@@ -27,10 +27,14 @@ pipeline {
                     }
                 }
                 stage('Dummy 1 Testing'){
-                    echo 'Dummy 1 testing....'
+                    steps {
+                        echo 'Dummy 1 testing....'
+                    }
                 }
                 stage('Dummy 2 Testing'){
-                    echo 'Dummy 2 testing....'
+                    steps {
+                        echo 'Dummy 2 testing....'
+                    }
                 }
             }
         }
