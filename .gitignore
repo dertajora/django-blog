@@ -1,3 +1,10 @@
 # visual code ignore
 .vscode
 .vscode/
+
+# ignore venv
+venv
+
+# ignore pycache
+blog/__pycache__
+test/__pycache__

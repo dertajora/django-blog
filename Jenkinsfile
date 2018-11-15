@@ -9,7 +9,7 @@ pipeline {
                 virtualenv venv
                 . venv/bin/activate
                 pip3 install -r requirements.txt
-                deactivate
+                
                 '''
                 echo 'Building nieeh..'
             }
@@ -17,9 +17,10 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                pwd
+                python3 manage.py test test/
+                deactivate
                 '''
-                echo 'Testing test nieeh..'
+                echo 'Testing nieeh..'
             }
         }
         stage('Deploy') {
