@@ -44,11 +44,14 @@ pipeline {
             }
         }
         stage('Deploy Production') {
-            steps {
-                script {
+            script {
                 env.DEPLOYMENT_DECISION = input message: 'Deploy on production?',
-                    parameters: [choice(name: 'Confirmation', choices: 'No\nYes', description: 'Choose "Yes" if you want to deploy this build')]
-                }
+                parameters: [choice(name: 'Confirmation', choices: 'No\nYes', description: 'Choose "Yes" if you want to deploy this build')]
+            }
+            when {
+                environment name: 'DEPLOYMENT_DECISION', value: 'yes'
+            }
+            steps {
                 echo 'Deploying to production....'
             }
         }
