@@ -5,8 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
+                pwd
                 virtualenv venv
-                source venv/bin/activate
+                . venv/bin/activate
                 python -r requirements.txt
                 deactivate
                 '''
