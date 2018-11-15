@@ -11,13 +11,18 @@ cache:
   key: "$CI_COMMIT_REF_SLUG"
   untracked: true
 
-job 1:
+Test Build:
   stage: build
   script: echo "Build Nieh"
-job 2:
+Test Model:
   stage: test
-  script: echo "Test Nieh"
-
-job 3:
+  script: echo "Test Model Nieh"
+Test View:
+  stage: test
+  script: echo "Test View Nieh"
+Last View:
+  stage: test
+  script: echo "Last Final Test"
+Test Deploy:
   stage: deploy
   script: echo "Deploy nieh"
