@@ -1,11 +1,11 @@
 pipeline {
     agent any
-    
+
     stages {
         stage('Build') {
             steps {
                 sh '''
-                python --version
+                python3 -V
                 docker --version
                 '''
                 echo 'Building nieeh..'
