@@ -40,11 +40,7 @@ pipeline {
         }
         stage('Deploy Staging') {
             steps {
-                sh '''
-                cd ~/projects/python-project/django-blog
-                docker pull dertajora/django-blog
-                docker-compose up -d --build
-                '''
+                sh './deploy_staging.sh'
                 echo 'Deploying to staging....'
             }
         }
