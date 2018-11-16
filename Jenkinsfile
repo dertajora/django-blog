@@ -1,5 +1,6 @@
 pipeline {
     environment {
+        latestDocker = docker.image("dertajora/django-blog:"+ "$BUILD_NUMBER");
         registry = "dertajora/django-blog"
         registryCredential = 'docker-hub-dertajora'
         dockerImage = ''
@@ -53,7 +54,7 @@ pipeline {
                 sh 'whoami'
                 script{
                     docker.withRegistry( '', registryCredential ) {
-                            docker.pull registry + ":$BUILD_NUMBER"
+                            latestDocker.pull()
                         }
                 }
                 sh 'bash deploy_staging.sh'
