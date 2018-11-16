@@ -57,7 +57,8 @@ pipeline {
                         latestDocker.pull()
                     }
                 }
-                sh 'bash deploy_staging.sh'
+                sh 'VERSION=$BUILD_NUMBER docker-compose up -d'
+                // sh 'bash deploy_staging.sh'
                 echo 'Deploying to staging....'
             }
         }

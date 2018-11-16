@@ -4,7 +4,7 @@ services:
   db:
     image: postgres
   web:
-    image: dertajora/django-blog
+    image: "dertajora/django-blog:${VERSION}"
     command: python3 manage.py runserver 0.0.0.0:8001
     ports:
       - "8006:8001"
