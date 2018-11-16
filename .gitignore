@@ -8,3 +8,5 @@ venv
 # ignore pycache
 blog/__pycache__
 test/__pycache__
+api/__pycache__
+api/migrations/__pycache__
