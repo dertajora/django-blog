@@ -4,14 +4,10 @@ services:
   db:
     image: postgres
   web:
-    build: .
+    image: dertajora/django-blog
     command: python3 manage.py runserver 0.0.0.0:8001
-    volumes:
-      - .:/code
     ports:
-      - "8005:8001"
-    depends_on:
-      - db
+      - "8006:8001"
     restart: always
     logging:
       options:
