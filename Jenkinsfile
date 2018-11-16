@@ -2,7 +2,7 @@ pipeline {
     environment {
         registry = "dertajora/django-blog"
         registryCredential = 'docker-hub-dertajora'
-        dockerImage = ‘’
+        dockerImage = ''
     }
 
     agent any
