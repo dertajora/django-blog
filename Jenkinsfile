@@ -49,6 +49,9 @@ pipeline {
         stage('Deploy Staging') {
             steps {
                 sh 'whoami'
+                docker.withRegistry( '', registryCredential ) {
+                        dockerImage.pull()
+                    }
                 sh 'bash deploy_staging.sh'
                 echo 'Deploying to staging....'
             }
