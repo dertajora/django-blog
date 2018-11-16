@@ -40,8 +40,8 @@ pipeline {
         }
         stage('Deploy Staging') {
             steps {
-                sh 'chown jenkins:jenkins deploy_staging.sh'
-                sh './deploy_staging.sh'
+                sh 'whoami'
+                bash './deploy_staging.sh'
                 echo 'Deploying to staging....'
             }
         }
