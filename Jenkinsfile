@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy Staging') {
             steps {
                 sh 'whoami'
-                sh '. deploy_staging.sh'
+                sh 'bash deploy_staging.sh'
                 echo 'Deploying to staging....'
             }
         }
