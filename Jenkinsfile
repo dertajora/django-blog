@@ -1,16 +1,22 @@
 pipeline {
+    environment {
+        registry = "dertajora/django-blog"
+        registryCredential = 'docker-hub-dertajora'
+        dockerImage = ‘’
+    }
+
     agent any
 
     stages {
         stage('Build') {
             steps {
-                sh '''
-                pwd
-                virtualenv venv
-                . venv/bin/activate
-                pip3 install -r requirements.txt
-                deactivate
-                '''
+                script{
+                    dockerImage = docker.build registry + “:$BUILD_NUMBER”
+                    docker.withRegistry( ‘’, registryCredential ) {
+                        dockerImage.push()
+                    }
+                }
+                
                 echo 'Building nieeh..'
             }
         }
