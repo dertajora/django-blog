@@ -10,6 +10,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                
                 script{
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                     docker.withRegistry( '', registryCredential ) {
@@ -28,6 +29,7 @@ pipeline {
                         virtualenv venv
                         . venv/bin/activate
                         pip3 install -r requirements.txt
+                        python3 manage.py migrate
                         python3 manage.py test test/
                         deactivate
                         '''
