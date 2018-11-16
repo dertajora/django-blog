@@ -25,6 +25,7 @@ pipeline {
                 stage('Unit Testing'){
                     steps {
                         sh '''
+                        virtualenv venv
                         . venv/bin/activate
                         python3 manage.py test test/
                         deactivate
