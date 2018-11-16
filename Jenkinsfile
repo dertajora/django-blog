@@ -53,7 +53,7 @@ pipeline {
                 sh 'whoami'
                 script{
                     docker.withRegistry( '', registryCredential ) {
-                            dockerImage.pull()
+                            docker.pull() registry + ":$BUILD_NUMBER"
                         }
                 }
                 sh 'bash deploy_staging.sh'
