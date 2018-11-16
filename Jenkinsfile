@@ -1,6 +1,5 @@
 pipeline {
     environment {
-        latestDocker = docker.image("dertajora/django-blog:"+ "$BUILD_NUMBER");
         registry = "dertajora/django-blog"
         registryCredential = 'docker-hub-dertajora'
         dockerImage = ''
@@ -56,6 +55,11 @@ pipeline {
                     docker.withRegistry( '', registryCredential ) {
                             latestDocker.pull()
                         }
+                }
+
+                docker.withRegistry('', registryCredential) {
+                    latestDocker = docker.image("dertajora/django-blog:"+ "$BUILD_NUMBER");
+                    latestDocker.pull()
                 }
                 sh 'bash deploy_staging.sh'
                 echo 'Deploying to staging....'
